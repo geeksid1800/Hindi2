@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/NumbersText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@android:color/black"
+        android:paddingLeft="16dp"
+        android:text="Numbers"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/ColoursText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8BC34A"
+        android:paddingLeft="16dp"
+        android:text="Colours"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/FamilyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00BCD4"
+        android:paddingLeft="16dp"
+        android:text="Family"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/PhrasesText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F42069"
+        android:paddingLeft="16dp"
+        android:text="Phrases"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play" />
+
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pause" />
+</LinearLayout>
+

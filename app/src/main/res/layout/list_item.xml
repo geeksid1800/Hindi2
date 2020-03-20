@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the XML file with the format for a single listView entry-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/IconImageView"
+        tools:src="@mipmap/hindi"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/HindiTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Hindi Word" />
+
+        <TextView
+            android:id="@+id/DefaultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="English Word" />
+    </LinearLayout>
+
+   <!-- <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/PlayImageView"
+        android:src="@mipmap/play"
+        android:layout_gravity="end"
+        />
+    -->
+</LinearLayout>

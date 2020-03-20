@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/list"
+    >
+</ListView>
+
+    <!-- This used to be activity_numbers.xml, but since it isn't specific to numbers,
+     i re-used it for all the other activities as well.
+     This is XML file containing the ListView 'list', so this is the
+     layout file all the activities will refer to, except MainActivity
+
+
+     This is sort of like MainActivity, having its activity_main.xml
+     which may contain a LinearLayout etc.
+     MainActivity will refer to activity_main as its layout file
+     -->
