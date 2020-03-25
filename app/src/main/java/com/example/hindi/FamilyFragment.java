@@ -1,22 +1,25 @@
 package com.example.hindi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
-
-
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class FamilyFragment extends Fragment {
     /** Handles playback of all the sound files */
     private MediaPlayer mMediaPlayer;
 
@@ -64,14 +67,21 @@ public class NumbersActivity extends AppCompatActivity {
         }
     };
 
+
+    public FamilyFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);             //word_list.xml is the XML file with ListView format. It has ID 'list'
-        ListView listView = findViewById(R.id.list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
+
+        ListView listView = rootView.findViewById(R.id.list);
 
         // Create and setup the {@link AudioManager} to request audio focus
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
         final ArrayList<Words> wordsList = new ArrayList<Words>();
@@ -80,19 +90,19 @@ public class NumbersActivity extends AppCompatActivity {
         // Words w = new Words("Ek","One",R.drawable.number_one);     //using constructor overloading to use the 3-argument constr.
         //wordsList.add(w);
         //note here we're not adding the image itself, we're adding the ID of the image, which is an integer
-        wordsList.add(new Words("Ek","One", R.drawable.number_one,R.raw.number_one));
-        wordsList.add(new Words("Do","Two", R.drawable.number_two,R.raw.number_two));
-        wordsList.add(new Words("Teen","Three", R.drawable.number_three,R.raw.number_three));
-        wordsList.add(new Words("Char","Four", R.drawable.number_four,R.raw.number_four));
-        wordsList.add(new Words("Paanch","Five", R.drawable.number_five,R.raw.number_five));
-        wordsList.add(new Words("Chheh","Six", R.drawable.number_six,R.raw.number_six));
-        wordsList.add(new Words("Saat","Seven", R.drawable.number_seven,R.raw.number_seven));
-        wordsList.add(new Words("Aath","Eight", R.drawable.number_eight,R.raw.number_eight));
-        wordsList.add(new Words("Nau","Nine", R.drawable.number_nine,R.raw.number_nine));
-        wordsList.add(new Words("Dus","Ten", R.drawable.number_ten,R.raw.number_ten));
+        wordsList.add(new Words("father", "әpә", R.drawable.family_father,R.raw.family_father));
+        wordsList.add(new Words("mother", "әṭa", R.drawable.family_mother,R.raw.family_mother));
+        wordsList.add(new Words("son", "angsi", R.drawable.family_son,R.raw.family_son));
+        wordsList.add(new Words("daughter", "tune", R.drawable.family_daughter,R.raw.family_daughter));
+        wordsList.add(new Words("older brother", "taachi", R.drawable.family_older_brother,R.raw.family_older_brother));
+        wordsList.add(new Words("younger brother", "chalitti", R.drawable.family_younger_brother,R.raw.family_younger_brother));
+        wordsList.add(new Words("older sister", "teṭe", R.drawable.family_older_sister,R.raw.family_older_sister));
+        wordsList.add(new Words("younger sister", "kolliti", R.drawable.family_younger_sister,R.raw.family_younger_sister));
+        wordsList.add(new Words("grandmother ", "ama", R.drawable.family_grandmother,R.raw.family_grandmother));
+        wordsList.add(new Words("grandfather", "paapa", R.drawable.family_grandfather,R.raw.family_grandfather));
 
 
-        WordsAdapter adapter = new WordsAdapter(this, wordsList);
+        WordsAdapter adapter = new WordsAdapter(getActivity(), wordsList);
 
         listView.setAdapter(adapter);
 
@@ -118,7 +128,7 @@ public class NumbersActivity extends AppCompatActivity {
 
                     // Create and setup the {@link MediaPlayer} for the audio resource associated
                     // with the current word
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, my_word.getAudioResourceID());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), my_word.getAudioResourceID());
 
                     // Start the audio file
                     mMediaPlayer.start();
@@ -129,10 +139,13 @@ public class NumbersActivity extends AppCompatActivity {
                 }
             }
         });
+
+        return rootView;
     }
 
+
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         // When the activity is stopped, release the media player resources because we won't
         // be playing any more sounds.
